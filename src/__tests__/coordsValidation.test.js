@@ -9,9 +9,9 @@ test("validate geolocation coordinates", () => {
     lat: "51.50851",
     long: "−0.12572",
   });
-  expect(Widget.coordsValidation("[51.50851, −0.12572]")).toEqual({
+  expect(Widget.coordsValidation("[51.50851, −0.12572]")).toStrictEqual({
     lat: "51.50851",
     long: "−0.12572",
   });
-  expect(Widget.coordsValidation("[51.50851−0.12572]")).toBe(undefined);
+  expect(Widget.coordsValidation("[51.50851−0.12572]")).toBeUndefined;
 });
