@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 16px;
+
+  background-color: #a7b2ff;
+  border-radius: 8px;
+}
+
+.input-post-text {
+  width: 100%;
+
+  border: none;
+  border-radius: 4px;
+}
+
+.posts {
+  height: 100%;
+  margin-bottom: 12px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-bottom: 8px;
+  padding: 12px 20px 12px 12px;
+
+  word-wrap: break-word;
+
+  background-color: #ffffff;
+  border-radius: 4px;
+
+  user-select: none;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.post-date {
+  font-size: 16px;
+}
+
+.post-location {
+  font-size: 16px;
+}
+
+.modal {
+  position: fixed;
+  transform: scale(0);
+}
+
+.modal-active {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  
+  padding: 20px;
+
+  background-color: #ffffff;
+  border: 1px #a7b2ff solid;
+  border-radius: 8px;
+  
+  transform: scale(1) translateX(-50%);
+}
+
+.modal-active p {
+  margin: 0;
+}
+
+.coords-form {
+  margin-top: 12px;
+}
+
+.input-coords.invalid {
+  border-color: #ff0000
+}
