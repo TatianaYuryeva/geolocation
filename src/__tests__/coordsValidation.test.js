@@ -13,5 +13,5 @@ test("validate geolocation coordinates", () => {
     lat: "51.50851",
     long: "−0.12572",
   });
-  expect(Widget.coordsValidation("[51.50851−0.12572]")).toBeUndefined;
+  expect(Widget.coordsValidation("[51.50851−0.12572]")).toBe(undefined);
 });
