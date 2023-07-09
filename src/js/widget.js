@@ -4,8 +4,8 @@ export class Widget {
   }
 
   static get markup() {
-    return localStorage.getItem("container")
-      ? localStorage.getItem("container")
+    return sessionStorage.getItem("container")
+      ? sessionStorage.getItem("container")
       : `
       <div class="posts"></div>
       <form class="post-add">
@@ -124,6 +124,6 @@ export class Widget {
 
     document.querySelector(".posts").append(post);
 
-    localStorage.setItem("container", container.innerHTML);
+    sessionStorage.setItem("container", container.innerHTML);
   }
 }
