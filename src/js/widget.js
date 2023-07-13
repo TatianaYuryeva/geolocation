@@ -26,8 +26,6 @@ export class Widget {
       if (navigator.geolocation) {
         const modal = document.querySelector(".modal");
         let coords;
-        const locationText = document.createElement("div");
-        locationText.classList.add("post-location");
 
         navigator.geolocation.getCurrentPosition(
           function (data) {
@@ -43,7 +41,7 @@ export class Widget {
               <p>Пожалуйста, дайте разрешение на&nbsp;использование геолокации, или&nbsp;введите координаты вручную.</p>
               <p>Широта и долгота через запятую</p>
               <form class="coords-form">
-                <input class="input-coords"></input>
+                <input class="input-coords" placeholder="51.50851, −0.12572"></input>
                 <button class="coords-btn back" type="button">Отмена</button>
                 <button class="coords-btn" type="submit">OK</button>
               </form>`;
@@ -75,15 +73,23 @@ export class Widget {
 
   static coordsValidation(inputCoords) {
     let coords;
+    
     try {
       const lat = inputCoords.split(",")[0].trim();
       const long = inputCoords.split(",")[1].trim();
       coords = { lat: lat, long: long };
-
+      
       if (lat[0] === "[" && long.at(-1) === "]") {
         coords.lat = lat.slice(1, lat.length);
         coords.long = long.slice(0, long.length - 1);
       }
+
+      const regexLat = /^(\d{1,2}){1}\.\d+/
+      const regexLong = /^((-?|−?)\d{1,3}){1}\.\d+/
+      if (!regexLat.test(coords.lat) || !regexLong.test(coords.long)) {
+        return
+      }
+
     } catch (err) {}
     return coords;
   }
